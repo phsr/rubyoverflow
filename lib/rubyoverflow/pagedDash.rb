@@ -1,5 +1,5 @@
 module Rubyoverflow
-  class PagedDash < Hashie::Dash
+  class PagedDash < BaseDash
     property :total
     property :pagesize
     property :page

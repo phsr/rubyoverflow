@@ -1,6 +1,6 @@
 require 'rubygems'
 require 'rake'
-
+require 'rspec'
 begin
   require 'jeweler'
   Jeweler::Tasks.new do |gem|
@@ -21,11 +21,7 @@ rescue LoadError
   puts "Jeweler (or a dependency) not available. Install it with: gem install jeweler"
 end
 
-require 'spec/rake/spectask'
-Spec::Rake::SpecTask.new(:spec) do |t|
-  t.libs << 'lib' << 'test'
-  t.spec_files = FileList['test/**/test_*.rb']
-end
+
 
 begin
   require 'rcov/rcovtask'
@@ -40,7 +36,6 @@ rescue LoadError
   end
 end
 
-task :test => :spec
 
 task :default => :test
 

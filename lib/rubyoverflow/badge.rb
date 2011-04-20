@@ -31,7 +31,7 @@ module Rubyoverflow
     
   end
 
-  class BadgeDash < Hashie::Dash
+  class BadgeDash < BaseDash
     property :badge_id
     property :rank
     property :name

@@ -27,7 +27,7 @@ module Rubyoverflow
   
   end
 
-  class CommentDash < Hashie::Dash
+  class CommentDash < BaseDash
     property :comment_id
     property :creation_date
     property :owner

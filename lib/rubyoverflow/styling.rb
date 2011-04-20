@@ -11,7 +11,7 @@ module Rubyoverflow
     
   end
   
-  class StylingDash < Hashie::Dash
+  class StylingDash < BaseDash
     property :link_color
     property :tag_foreground_color
     property :tag_background_color

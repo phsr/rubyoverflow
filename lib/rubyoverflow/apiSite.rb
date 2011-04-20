@@ -1,6 +1,6 @@
 module Rubyoverflow
   class ApiSite
-    attr_reader :name, :logo_url, :api_endpoint, :site_url, :description, :icon_url, :state, :styling
+    attr_reader :name, :logo_url, :api_endpoint, :site_url, :description, :icon_url, :state, :styling, :aliases
   
     def initialize(hash,url='')
       dash = ApiSiteDash.new hash
@@ -13,11 +13,13 @@ module Rubyoverflow
       @icon_url = dash.icon_url
       @state = dash.state
       @styling = Styling.new dash.styling if dash.styling
+      @aliases = dash.aliases
     end
   
   end
 
-  class ApiSiteDash < Hashie::Dash
+  class ApiSiteDash < BaseDash
+    property :aliases
     property :name
     property :logo_url
     property :api_endpoint

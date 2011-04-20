@@ -38,7 +38,7 @@ module Rubyoverflow
   
   end
 
-  class StatisticsDash < Hashie::Dash
+  class StatisticsDash < BaseDash
     property :total_questions
     property :total_badges
     property :total_unanswered

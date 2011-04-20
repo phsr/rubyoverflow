@@ -77,7 +77,7 @@ module Rubyoverflow
 
   end
 
-  class QuestionDash < Hashie::Dash
+  class QuestionDash < BaseDash
     property :tags
     property :answer_count
     property :answers

@@ -41,7 +41,7 @@ module Rubyoverflow
   
   end
 
-  class RevisionDash < Hashie::Dash
+  class RevisionDash < BaseDash
     property :body
     property :comment
     property :creation_date

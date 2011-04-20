@@ -22,7 +22,7 @@ module Rubyoverflow
   
   end
 
-  class RepChangeDash <Hashie::Dash
+  class RepChangeDash <BaseDash
     property :user_id
     property :post_id
     property :post_type

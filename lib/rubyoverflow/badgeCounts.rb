@@ -14,7 +14,7 @@ module Rubyoverflow
   
   end
 
-  class BadgeCountsDash < Hashie::Dash
+  class BadgeCountsDash < BaseDash
     property :gold
     property :silver
     property :bronze

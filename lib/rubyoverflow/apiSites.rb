@@ -19,7 +19,7 @@ module Rubyoverflow
     end
   end
 
-  class ApiSitesDash < Hashie::Dash
+  class ApiSitesDash < BaseDash
     property :api_sites
   end
 end

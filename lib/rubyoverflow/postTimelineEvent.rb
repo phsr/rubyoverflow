@@ -76,7 +76,7 @@ module Rubyoverflow
   
   end
 
-  class PostTimelineEventDash < Hashie::Dash
+  class PostTimelineEventDash < BaseDash
     property :timeline_type
     property :post_id
     property :question_id

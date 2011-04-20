@@ -27,7 +27,7 @@ module Rubyoverflow
   
   end
 
-  class UserTimelineEventDash < Hashie::Dash
+  class UserTimelineEventDash < BaseDash
 
     property :user_id
     property :timeline_type

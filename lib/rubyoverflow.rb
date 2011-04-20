@@ -55,7 +55,7 @@ module Rubyoverflow
     # (especially the open => gzip code, query string, and normalize), and c) I'm new to ruby, so I'm going to skip pass some of the more 'boring' stuff and get to the 
     # interesting parts.  I plan to re-examine this at a later point
     HOST = 'http://api.stackoverflow.com'
-    VERSION = '1.0'
+    VERSION = '1.1'
 
     attr_reader :host
     attr_reader :api_key
@@ -64,21 +64,13 @@ module Rubyoverflow
       if options.kind_of? OpenStruct
         @host = options.host || HOST
         @version = options.version || VERSION
-        @api_key = options.api_key
+        @api_key = options.api_key if options.api_key
       end
       
      
     end
     
-    def change_end_point(val = nil)
-      if val.kind_of? ApiSite
-        @host = val.api_endpoint
-      end
-      
-      if val.kind_of? String
-        @host = val
-      end
-    end
+    
     
     def request(path, parameters)
       parameters['key'] = @api_key if @api_key
@@ -97,6 +89,20 @@ module Rubyoverflow
       def config &block
         options = OpenStruct.new
         yield options if block_given?
+        init_client! Client.new(options)
+      end
+      
+      def change_end_point(val = nil)
+        options = OpenStruct.new
+        if val.kind_of? ApiSite
+          options.host = val.api_endpoint
+        end
+
+        if val.kind_of? String
+          options.host = val
+        end
+        options.api_key = Base.client.api_key
+        
         init_client! Client.new(options)
       end
       
@@ -125,8 +131,8 @@ module Rubyoverflow
       if !parameters.empty?
         params = parameters.sort_by { |k, v| k.to_s }
         pairs  = params.map { |key, value| "#{key}=#{value}" }
-
-        '?' + pairs.join('&')
+        
+        '?' + pairs.join('&') + "&jsonp"
       else
         ''
       end

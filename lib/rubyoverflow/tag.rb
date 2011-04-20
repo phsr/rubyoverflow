@@ -17,7 +17,7 @@ module Rubyoverflow
   
   end
 
-  class TagDash < Hashie::Dash
+  class TagDash < BaseDash
     property :name
     property :count
     property :restricted_to

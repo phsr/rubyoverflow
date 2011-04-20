@@ -38,7 +38,7 @@ module Rubyoverflow
 
   end
 
-  class AnswerDash < Hashie::Dash
+  class AnswerDash < BaseDash
   
     property :answer_id
     property :accepted

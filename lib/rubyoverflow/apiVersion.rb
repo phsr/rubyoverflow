@@ -1,5 +1,5 @@
 module Rubyoverflow
-  class ApiVersion < Hashie::Dash
+  class ApiVersion < BaseDash
     property :version
     property :revision
   end

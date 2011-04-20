@@ -146,7 +146,7 @@ module Rubyoverflow
     end
   end
 
-  class UserDash < Hashie::Dash
+  class UserDash < BaseDash
     property :user_id
     property :user_type
     property :creation_date

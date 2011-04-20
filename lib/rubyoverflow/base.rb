@@ -6,14 +6,22 @@ module Rubyoverflow
     end
   
     def find_parse_querystring(rawurl)
-      url, querystring = rawurl.split('?')
       queryHash = {}
+      if rawurl.include? '?'
+      url, querystring = rawurl.split('?')
+      
       if querystring
         querystring.split('&').each {|pair|
           key,value=pair.split('=')
           queryHash[key]=value 
         }
         queryHash
+      end
+      url.sub!(Base.client.host_path,'')
+      return url,queryHash
+      
+      else
+      url = rawurl
       end
       url.sub!(Base.client.host_path,'')
       return url,queryHash
@@ -51,9 +59,18 @@ module Rubyoverflow
       end
       
       def change_end_point(endpoint)
-        client.change_end_point endpoint
+        Client.change_end_point endpoint
       end
     end
     
+  end
+
+  class BaseDash < Hashie::Dash
+    def initialize(hash={})
+      hash2 = Hash.new
+      hash.each { |key, value| hash2[key.strip] = value  }
+      hash = hash2
+      super(hash)
+    end
   end
 end
