@@ -6,46 +6,8 @@ require 'zlib'
 require 'ostruct'
 require 'hashie'
 
-require 'rubyoverflow/base'
-require 'rubyoverflow/pagedBase'
-require 'rubyoverflow/pagedDash'
-
-require 'rubyoverflow/apiVersion'
-require 'rubyoverflow/badge'
-require 'rubyoverflow/badges'
-require 'rubyoverflow/comments'
-require 'rubyoverflow/comment'
-require 'rubyoverflow/badgeCounts'
-require 'rubyoverflow/statistics'
-require 'rubyoverflow/tag'
-require 'rubyoverflow/tags'
-require 'rubyoverflow/user'
+require 'rubyoverflow/sites'
 require 'rubyoverflow/users'
-
-require 'rubyoverflow/answer'
-require 'rubyoverflow/answers'
-
-require 'rubyoverflow/question'
-require 'rubyoverflow/questions'
-
-require 'rubyoverflow/repChange'
-require 'rubyoverflow/repChanges'
-
-require 'rubyoverflow/userTimelineEvent'
-require 'rubyoverflow/userTimelineEvents'
-
-require 'rubyoverflow/postTimelineEvent'
-require 'rubyoverflow/postTimelineEvents'
-
-require 'rubyoverflow/revision'
-require 'rubyoverflow/revisions'
-
-require 'rubyoverflow/errors'
-
-require 'rubyoverflow/styling'
-
-require 'rubyoverflow/apiSite'
-require 'rubyoverflow/apiSites'
 
 module Rubyoverflow
   class Client
@@ -72,8 +34,8 @@ module Rubyoverflow
     
     
     
-    def request(path, parameters)
-      parameters['key'] = @api_key if @api_key
+    def request(path, parameters = {})
+      parameters['key'] = @api_key unless @api_key.empty?
       url = host_path + normalize(path) + query_string(parameters)
       response = self.class.get url
       return response.parsed_response, url
@@ -132,7 +94,7 @@ module Rubyoverflow
         params = parameters.sort_by { |k, v| k.to_s }
         pairs  = params.map { |key, value| "#{key}=#{value}" }
         
-        '?' + pairs.join('&') + "&jsonp"
+        '?' + pairs.join('&')
       else
         ''
       end

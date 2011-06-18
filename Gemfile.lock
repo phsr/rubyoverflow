@@ -1,0 +1,19 @@
+GIT
+  remote: git@github.com:phsr/httparty.git
+  revision: d9bdb94efefdd6f1a5b431194bf4b2b768d4923c
+  specs:
+    httparty (0.7.7)
+      crack (= 0.1.8)
+
+GEM
+  remote: http://rubygems.org/
+  specs:
+    crack (0.1.8)
+    hashie (1.0.0)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  hashie
+  httparty!
