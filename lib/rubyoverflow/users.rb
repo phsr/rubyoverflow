@@ -13,5 +13,12 @@ module Rubyoverflow
 		end
 	end
 	
+	class Client
+		@users = nil
 
+		def users
+			@users = Users.new(self) unless @users
+			@users
+		end
+	end
 end

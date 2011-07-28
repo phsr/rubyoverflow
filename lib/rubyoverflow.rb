@@ -47,12 +47,6 @@ module Rubyoverflow
       end
     end
 
-		def users
-			@users = Users.new self unless @users
-
-			@users
-		end
-
     private
     def normalize(path)
       path.end_with?('/') ? path : path+ '/'
