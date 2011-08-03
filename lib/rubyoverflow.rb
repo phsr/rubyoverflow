@@ -7,6 +7,7 @@ require 'ostruct'
 require 'json'
 require 'rubyoverflow/sites'
 require 'rubyoverflow/users'
+require "rubyoverflow/version"
 
 module Rubyoverflow
   class Client
