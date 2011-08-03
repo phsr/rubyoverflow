@@ -8,8 +8,8 @@ Gem::Specification.new do |s|
   s.authors     = ["Dan Seaver"]
   s.email       = ["git@danseaver.com"]
   s.homepage    = ""
-  s.summary     = %q{TODO: Write a gem summary}
-  s.description = %q{TODO: Write a gem description}
+  s.summary     = %q{Rubyoverflow is a Ruby wrapper for the Stack Exchange APIs}
+  s.description = %q{Rubyoverflow is a Ruby wrapper for the Stack Exchange APIs}
 
   s.rubyforge_project = "rubyoverflow"
 
