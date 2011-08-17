@@ -1,7 +1,9 @@
 module Rubyoverflow
   class Sites
     def fetch(params = {})
-      Client.stackauth_client.request 'sites', params
+      hash,url = Client.stackauth_client.request 'sites', params
+      
+      Hashie::Mash.new hash
     end
   end
 

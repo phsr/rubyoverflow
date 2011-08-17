@@ -4,6 +4,7 @@ $LOAD_PATH.unshift(path) unless $LOAD_PATH.include?(path)
 require 'httparty'
 require 'ostruct'
 
+require 'hashie'
 require 'json'
 require 'rubyoverflow/sites'
 require 'rubyoverflow/users'
