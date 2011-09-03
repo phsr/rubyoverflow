@@ -1,18 +1,20 @@
 module Rubyoverflow
   class Sites
+    @client = nil
     def fetch(params = {})
-      hash,url = Client.stackauth_client.request 'sites', params
-      
+      @client ||= Client.stackauth_client
+
+      hash,url = @client.request 'sites', params
+
       Hashie::Mash.new hash
     end
   end
 
-	class Client
-		@sites = nil
+  class Client
+    @sites = nil
 
-		def sites
-			@sites = Sites.new unless @sites
-			@sites
-		end
-	end
+    def sites
+      @sites ||= Sites.new
+    end
+  end
 end
