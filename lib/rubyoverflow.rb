@@ -17,8 +17,8 @@ module Rubyoverflow
     HOST = 'http://api.stackoverflow.com'
     VERSION = '1.1'
 
-    attr_reader :host
-    attr_reader :api_key
+    attr_accessor :host
+    attr_accessor :api_key
 
     def initialize(options = OpenStruct.new)
       if options.kind_of? OpenStruct
