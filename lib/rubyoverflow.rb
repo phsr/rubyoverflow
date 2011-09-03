@@ -19,7 +19,7 @@ module Rubyoverflow
 
     attr_reader :host
     attr_reader :api_key
-    
+
     def initialize(options = OpenStruct.new)
       if options.kind_of? OpenStruct
         @host = options.host || HOST
@@ -34,13 +34,12 @@ module Rubyoverflow
       response = self.class.get url
       return JSON.parse(response.body), url
     end
-    
+
     def host_path
       normalize(@host) +  normalize(@version)
     end
-    
+
     class << self
-            
       def stackauth_client(api_key = '')
         options = OpenStruct.new
         options.host = 'http://stackauth.com/'
@@ -53,12 +52,12 @@ module Rubyoverflow
     def normalize(path)
       path.end_with?('/') ? path : path+ '/'
     end
-    
+
     def query_string(parameters)
       if !parameters.empty?
         params = parameters.sort_by { |k, v| k.to_s }
         pairs  = params.map { |key, value| "#{key}=#{value}" }
-        
+
         '?' + pairs.join('&')
       else
         ''
