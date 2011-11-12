@@ -13,7 +13,7 @@ describe Users do
 
   it "retrieves phsr" do
     result = @client.users.fetch(:id => 53587)
-    result.users.first.display_name.should == 'phsr'
+    result.users.first.display_name.should == 'Dan Seaver'
   end
 
   it "retrieves multiple users by an array of ids" do
