@@ -1,5 +1,7 @@
 = rubyoverflow
 
+{<img src="https://secure.travis-ci.org/phsr/rubyoverflow.png" />}[http://travis-ci.org/phsr/rubyoverflow]
+
 rubyoverflow is a library for querying the Stack Overflow API
 
 == Configuration
@@ -13,22 +15,17 @@ rubyoverflow is a library for querying the Stack Overflow API
 == Example
 
     require 'rubyoverflow'
-    include Rubyoverflow
-    # Tags Example
-    tagsSet = Tags.retrieve_all({:sort=>'name',:order=>'asc',:pagesize=>'5'}) # gets the first 5 tags in alphabetical order by name
-    firstTag = tagsSet.tags.first # gets the first tag
-    secondTagSet = tagsSet.get_next_set #gets the next page of tags using the prior parameters
-    thirdTagSet = secondTagSet.get_next_set #gets the third page of tags using the prior parameters
-    puts firstTag.name # => tag's name
-    puts tag.count # => # of questions with tag
-    
-    #User Example
-    me = Users.retrieve_by_id(53587).users.first  #gets me
-    myquestions = me.get_questions  #gets the questions I asked
 
+    c = Rubyoverflow::Client.new
+    result = c.users.fetch(:id => 53587) # By default, this will query StackOverflow.com
+    me = result.users.first              # Get the first user out of the results
+    puts me.display_name                 # => "Dan Seaver"
+
+
+    c = Rubyoverflow::Client.new :host => "api.serverfault.com" # Query ServerFault.com
 
 == Note on Patches/Pull Requests
- 
+
 * Fork the project.
 * Make your feature addition or bug fix.
 * Add tests for it. This is important so I don't break it in a
@@ -39,5 +36,5 @@ rubyoverflow is a library for querying the Stack Overflow API
 
 == Copyright
 
-Copyright (c) 2010 phsr. See LICENSE for details.
+Copyright (c) 2011 Dan Seaver. See LICENSE for details.
 
