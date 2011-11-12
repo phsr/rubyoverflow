@@ -1,3 +1,3 @@
 module Rubyoverflow
-  VERSION = "1.1.0b3"
+  VERSION = "0.5"
 end
