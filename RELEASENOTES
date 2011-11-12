@@ -1,5 +1,5 @@
 [1.0.1]
-Minor formatting refactorings on most classes
+Minor formatting refactorings
 Setup tests with rspec
 Updated Client.new to accept an ApiSite
 Added Styling class
@@ -13,6 +13,13 @@ Replaced convert_if_array to convert_to_id_list
 Added User#item_id
 Added tests for Badge and Badges
 Completed check_badge_set stub in test/helper
+Added item_id to badge so that you can pass an array containing badges to a method
+Updated convert_if_array to append the id of an item if that class defines the item_id method
+Added protected_date to Question (previously missing)
+Removed parameters from User#get_badges, as the route doesn't support parameters
+Update Users.retrieve_by_badge to support a Badge as a parameter
+Stubbed out test helper methods for checking class sets
+Completed unit tests for Users and User classes
 
 
 [1.0.0]
@@ -31,11 +38,11 @@ Added ApiSite and ApiSites as well as ApiSites.retrieve_sites to retrieve all AP
 Added the class method Users.retrieve_associated_accounts and the instance method User.retrieve_associated_accounts, which calls the Users.retrieve_associated_accounts method with the instance's associated_id
 
 [0.8.3]
-Added Badge.get_recipients
-Added Answer.get_comments
+Added Badge#get_recipients
+Added Answer#get_comments
 Added Users.get_moderators
-Added PostTimelineEvent.get_post, PostTimelineEvent.get_post_comment, and PostTimelineEvent.get_revision
-Added Question.get_timeline, Question.get_answers, Question.get_comments
+Added PostTimelineEvent#get_post, PostTimelineEvent#get_post_comment, and PostTimelineEvent#get_revision
+Added Question#get_timeline, Question#get_answers, Question#get_comments
 
 [0.8.2]
 Added get_next_set to paged results, retrieve the next set using the same parameters that were used to retrieve the initial set
