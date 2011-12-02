@@ -1,6 +1,7 @@
+= NOTE: I have renamed my account to danseaver.  I have forked this repo from the new official rubyoverflow available at http://github.com/danseaver/rubyoverflow.  This fork will *not* be kept in sync
+
 = rubyoverflow
 
-{<img src="https://secure.travis-ci.org/phsr/rubyoverflow.png" />}[http://travis-ci.org/phsr/rubyoverflow]
 
 rubyoverflow is a library for querying the Stack Overflow API
 
